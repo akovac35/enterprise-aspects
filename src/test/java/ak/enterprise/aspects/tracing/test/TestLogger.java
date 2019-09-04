@@ -49,6 +49,11 @@ public class TestLogger implements ILogger {
 	public void fine(String msg, Object o) {
 		messages.put(msg+" fine", String.valueOf(o));
 	}
+	
+	@Override
+	public void fine(String msg, Object o, String correlation) {
+		messages.put(msg+" fine", String.valueOf(o));
+	}
 
 	@Override
 	public void finer(String msg) {
@@ -59,6 +64,11 @@ public class TestLogger implements ILogger {
 	public void finer(String msg, Object o) {
 		messages.put(msg+" finer", String.valueOf(o));
 	}
+	
+	@Override
+	public void finer(String msg, Object o, String correlation) {
+		messages.put(msg+" finer", String.valueOf(o));
+	}
 
 	@Override
 	public void finest(String msg) {
@@ -67,6 +77,11 @@ public class TestLogger implements ILogger {
 	
 	@Override
 	public void finest(String msg, Object o) {
+		messages.put(msg+" finest", String.valueOf(o));
+	}
+	
+	@Override
+	public void finest(String msg, Object o, String correlation) {
 		messages.put(msg+" finest", String.valueOf(o));
 	}
 

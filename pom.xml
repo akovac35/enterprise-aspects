@@ -44,7 +44,7 @@
 			<version>${gson.version}</version>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<finalName>${project.name}</finalName>
 		<plugins>
@@ -73,42 +73,22 @@
 					<!-- https://www.eclipse.org/m2e/documentation/release-notes-17.html#new-syntax-for-specifying-lifecycle-mapping-metadata -->
 					<execution>
 					<?m2e execute onConfiguration,onIncremental?>
-						<id>weave-classes</id>
+						<id>process-classes</id>
 						<phase>process-classes</phase>
 						<goals>
 							<goal>compile</goal>
 						</goals>
-						<configuration>
-							<sources>
-								<source>
-									<basedir>${project.build.sourceDirectory}</basedir>
-									<includes>
-										<include>**/*.aj</include>
-										<include>**/*.java</include>
-									</includes>
-								</source>
-							</sources>
-						</configuration>
 					</execution>
 					<!-- https://www.eclipse.org/m2e/documentation/release-notes-17.html#new-syntax-for-specifying-lifecycle-mapping-metadata -->
+					<!-- Only include this section if there exist test classes, or the following 
+						message may be reported: [ERROR] no sources specified -->
 					<execution>
 					<?m2e execute onConfiguration,onIncremental?>
-						<id>weave-test-classes</id>
+						<id>process-test-classes</id>
 						<phase>process-test-classes</phase>
 						<goals>
 							<goal>test-compile</goal>
 						</goals>
-						<configuration>
-							<sources>
-								<source>
-									<basedir>${project.build.testSourceDirectory}</basedir>
-									<includes>
-										<include>**/*.aj</include>
-										<include>**/*.java</include>
-									</includes>
-								</source>
-							</sources>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>

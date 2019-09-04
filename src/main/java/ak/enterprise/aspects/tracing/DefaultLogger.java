@@ -4,7 +4,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DefaultLogger implements ILogger {
-	final Logger l;
+	protected final Logger l;
+	public final static String CORRELATION = "CORRELATION";
 
 	public DefaultLogger(String name) {
 		l = Logger.getLogger(name);
@@ -38,6 +39,11 @@ public class DefaultLogger implements ILogger {
 	public void fine(String msg, Object o) {
 		l.log(Level.FINE, msg, o);
 	}
+	
+	@Override
+	public void fine(String msg, Object o, String correlation) {
+		l.log(Level.FINE, msg, new Object[] {prepareCorrelation(correlation), o});
+	}
 
 	@Override
 	public void finer(String msg) {
@@ -48,6 +54,11 @@ public class DefaultLogger implements ILogger {
 	public void finer(String msg, Object o) {
 		l.log(Level.FINER, msg, o);
 	}
+	
+	@Override
+	public void finer(String msg, Object o, String correlation) {
+		l.log(Level.FINER, msg, new Object[] {prepareCorrelation(correlation), o});
+	}
 
 	@Override
 	public void finest(String msg) {
@@ -57,6 +68,11 @@ public class DefaultLogger implements ILogger {
 	@Override
 	public void finest(String msg, Object o) {
 		l.log(Level.FINEST, msg, o);
+	}
+	
+	@Override
+	public void finest(String msg, Object o, String correlation) {
+		l.log(Level.FINEST, msg, new Object[] {prepareCorrelation(correlation), o});
 	}
 
 	@Override
@@ -92,5 +108,9 @@ public class DefaultLogger implements ILogger {
 	@Override
 	public boolean isFinestLoggingLevelEnabled() {
 		return l.isLoggable(Level.FINEST);
+	}
+	
+	protected String prepareCorrelation(String correlation) {
+		return CORRELATION + ": " + correlation;
 	}
 }

@@ -10,14 +10,20 @@ public interface ILogger {
 	public void fine(String msg);
 	
 	public void fine(String msg, Object o);
+	
+	public void fine(String msg, Object o, String correlation);
 
 	public void finer(String msg);
 	
 	public void finer(String msg, Object o);
+	
+	public void finer(String msg, Object o, String correlation);
 
 	public void finest(String msg);
 	
 	public void finest(String msg, Object o);
+	
+	public void finest(String msg, Object o, String correlation);
 
 	public void entering(String className, String methodName, Object inputParams);
 

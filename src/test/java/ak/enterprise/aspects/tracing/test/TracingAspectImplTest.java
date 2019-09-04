@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class TracingTest {
+public class TracingAspectImplTest {
 
 	@Test
 	public void staticInitializorTest() {
