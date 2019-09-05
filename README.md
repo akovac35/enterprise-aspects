@@ -6,70 +6,12 @@ enterprise-aspects is an AOP Java library containing a collection of AspectJ asp
 * developer productivity,
 * build dependency minimization.
 
-## Building the library
-The distribution files can be built by running the standard Maven goal `mvn install` in the project root.
+## Usage
+See wiki: [enterprise-aspects Wiki](../../wiki)
 
-## TracingAspect usage
-The `TracingAspect` is designed for aspect extension based tracing concern implementation. To enable entry/exit and other type of tracing in custom code, extend this aspect as follows:
+## Maven build
 
-```java
-public aspect TracingAspectImpl extends TracingAspect  pertypewithin(ak.enterprise.aspects.tracing.test..*) {
-
-	public pointcut loggableCode(): 
-		within(ak.enterprise.aspects.tracing.test..*) &&
-		!within(ak.enterprise.aspects.tracing.test.TracingTest+);
-	
-	/* Optionally define custom logger
-	@Override
-	protected void setTypeLogger(String name) {
-		l = new DefaultLogger(name);
-	}
-	*/
-	
-	/* Optionally define custom stringifier
-	@Override
-	protected String stringify(Object o) {
-		return DefaultStringifier.stringify(o);
-	}
-	*/
-}
-```
-For in-method tracing, use `TracingHelper`, for example:
-```java
-TracingHelper.fine("Doing something.");
-```
-Calls to `TracingHelper` are replaced with named logger invocation. Trace example:
-
-```
-[9/3/19 17:43:07:391 CEST] 00000484 samples.web.RestServices              > <clinit> ENTRY
-[9/3/19 17:43:07:392 CEST] 00000484 samples.web.RestServices              < <clinit> RETURN
-[9/3/19 17:43:07:393 CEST] 00000484 samples.web.RestServices              > <init> ENTRY
-[9/3/19 17:43:07:394 CEST] 00000484 samples.web.RestServices              < <init> RETURN
-[9/3/19 17:43:07:412 CEST] 00000484 samples.web.rest.BusinessLogicService > <clinit> ENTRY
-[9/3/19 17:43:07:412 CEST] 00000484 samples.web.rest.BusinessLogicService < <clinit> RETURN
-[9/3/19 17:43:07:412 CEST] 00000484 samples.web.rest.BusinessLogicService > <init> ENTRY
-[9/3/19 17:43:07:412 CEST] 00000484 samples.web.rest.BusinessLogicService < <init> RETURN
-[9/3/19 17:43:07:416 CEST] 00000484 samples.web.rest.BusinessLogicService > getBusinessObject ENTRY
-[9/4/19 17:43:07:417 CEST] 00000484 samples.web.rest.BusinessLogicService 1 Doing something.
-[9/3/19 17:43:07:517 CEST] 00000484 samples.web.rest.BusinessLogicService < getBusinessObject RETURN {"firstName":"Test","lastName":"Object"}
-```
-
-Main aspect design features are:
-
- * one statically instantiated named logger instance per type, used without list or array search,
- * entry/exit trace with included input parameters and return value,
- * minimal performance impact when tracing is not enabled,
- * minimal development effort to support tracing in custom code,
-* customizable.
-
-The aspect already contains the necessary filters to include constructors and static initializers and exclude internal and common code (`toString`, `getClass`, ...). Define the `loggableCode` pointcut value to include packages, classes or methods to be included or excluded for entry/exit tracing. 
-
-The aspect defines a `DefaultLogger`, which uses `java.util.logging.Loger`, and a `DefaultStringifier`, which uses `com.google.gson.Gson` to stringify Java objects to JSON string. `Gson` was selected as the default stringifier because it does not conflict with existing Java EE jsonp and jsonb server implementations while being well tested, stable and performant to cover the requirements. Concrete aspect implementation may override the defaults.
-
-## Including the enterprise-aspects library in your project
-Standard Maven goals apply, e.g.: `mvn clean install`
-
-Use the following pom.xml example when building your project with Maven:
+Use the following pom.xml example when building your project:
 
 ```XML
 	<properties>
