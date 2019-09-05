@@ -7,11 +7,15 @@ enterprise-aspects is an AOP Java library containing a collection of AspectJ asp
 * build dependency minimization.
 
 ## Usage
-See wiki: [enterprise-aspects Wiki](../../wiki)
+See Wiki: [enterprise-aspects Wiki](../../wiki)
 
-## Maven build
+## Building the enterprise-aspects library
+The distribution files can be built by running the standard Maven goal `mvn install` in the project root.
 
-Use the following pom.xml example when building your project:
+## Including the enterprise-aspects library in your project
+Standard Maven goals apply, e.g. `mvn clean install`.
+
+Use the following pom.xml example when building your project with Maven:
 
 ```XML
 	<properties>
