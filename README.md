@@ -6,9 +6,10 @@ enterprise-aspects is an AOP Java library containing a collection of AspectJ asp
 * developer productivity,
 * build dependency minimization.
 
+## Building the library
+The distribution files can be built by running the standard Maven goal `mvn install` in the project root.
 
 ## TracingAspect usage
-
 The `TracingAspect` is designed for aspect extension based tracing concern implementation. To enable entry/exit and other type of tracing in custom code, extend this aspect as follows:
 
 ```java
@@ -65,9 +66,10 @@ The aspect already contains the necessary filters to include constructors and st
 
 The aspect defines a `DefaultLogger`, which uses `java.util.logging.Loger`, and a `DefaultStringifier`, which uses `com.google.gson.Gson` to stringify Java objects to JSON string. `Gson` was selected as the default stringifier because it does not conflict with existing Java EE jsonp and jsonb server implementations while being well tested, stable and performant to cover the requirements. Concrete aspect implementation may override the defaults.
 
-## Maven build
+## Including the enterprise-aspects library in your project
+Standard Maven goals apply, e.g.: `mvn clean install`
 
-Use the following pom.xml example when building your project:
+Use the following pom.xml example when building your project with Maven:
 
 ```XML
 	<properties>
