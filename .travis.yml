@@ -1,0 +1,10 @@
+language: java
+
+dist: trusty
+
+jdk:
+#  Not supported by org.codehous.mojo.aspectj-maven-plugin
+#  - openjdk7
+  - openjdk8
+#  Not yet supported by org.codehous.mojo.aspectj-maven-plugin
+#  - openjdk11
