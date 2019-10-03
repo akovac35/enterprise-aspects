@@ -5,9 +5,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.github.akovac35.enterprise</groupId>
-	<artifactId>aspects</artifactId>
-	<version>1.0.2</version>
+	<groupId>com.github.akovac35</groupId>
+	<artifactId>enterprise-aspects</artifactId>
+	<version>1.0.3</version>
 
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>A collection of AspectJ aspects for small to medium enterprise applications.</description>

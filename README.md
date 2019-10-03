@@ -9,7 +9,7 @@ enterprise-aspects is an AOP Java library containing a collection of AspectJ asp
 ## Usage
 See Wiki: [enterprise-aspects Wiki](../../wiki)
 
-## Building the enterprise-aspects library
+## Building and installing the enterprise-aspects library
 The distribution files can be built by running the standard Maven goal `mvn clean install` in the project root:
 
 1. git clone https://github.com/akovac35/enterprise-aspects.git
@@ -63,8 +63,8 @@ Use the following pom.xml example when building your project with Maven:
 		</dependency>
 		
 		<dependency>
-			<groupId>com.github.akovac35.enterprise</groupId>
-			<artifactId>aspects</artifactId>
+			<groupId>com.github.akovac35</groupId>
+			<artifactId>enterprise-aspects</artifactId>
 			<version>tag_name</version>
 		</dependency>
 	</dependencies>
