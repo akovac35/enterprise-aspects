@@ -1,10 +1,16 @@
 language: java
-
 dist: trusty
-
 jdk:
 #  Not supported by org.codehous.mojo.aspectj-maven-plugin
 #  - openjdk7
   - openjdk8
 #  Not yet supported by org.codehous.mojo.aspectj-maven-plugin
 #  - openjdk11
+
+## export GPG details
+#before_install:
+#    - echo $GPG_SECRET_KEY | base64 --decode | $GPG_EXECUTABLE --import
+#    - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
+
+install:
+    mvn install -Dgpg.skip -Dmaven.javadoc.skip=true -DskipNexusStagingDeployMojo=true -B -V
