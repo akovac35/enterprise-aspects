@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.ElementType;
 
 /**
- * Retries the annotated method by applying {@link RetryAspect}. Example use:
+ * Retries the annotated method by applying the RetryAspect. Example use:
  * {@code @Retry(maxRetries = 3)} or
  * {@code @Retry(maxRetries = 3, delayMilliseconds = 500)}.
  * 

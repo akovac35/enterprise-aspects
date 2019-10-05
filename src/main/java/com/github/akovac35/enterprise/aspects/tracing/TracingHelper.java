@@ -5,14 +5,14 @@ import java.io.StringWriter;
 
 /**
  * Use this class for tracing concern implementation in custom code. All
- * invocations of this class are handled by the {@link TracingAspect}.
+ * invocations of this class are handled by the TracingAspect.
  * 
  * @author Aleksander Kovač
  *
  */
 public class TracingHelper {
 	/**
-	 * Code marker to be handled by the {@link TracingAspect} at logging level
+	 * Code marker to be handled by the TracingAspect at logging level
 	 * equivalent to java.util.logging.Level.SEVERE.
 	 * 
 	 * @param msg Message to be logged
@@ -21,7 +21,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect} at logging level
+	 * Code marker to be handled by the TracingAspect at logging level
 	 * equivalent to java.util.logging.Level.WARNING.
 	 * 
 	 * @param msg Message to be logged
@@ -30,7 +30,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect} at logging level
+	 * Code marker to be handled by the TracingAspect at logging level
 	 * equivalent to java.util.logging.Level.INFO.
 	 * 
 	 * @param msg Message to be logged
@@ -39,7 +39,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect} at logging level
+	 * Code marker to be handled by the TracingAspect at logging level
 	 * equivalent to java.util.logging.Level.FINE. FINE logging level is generally
 	 * used for debugging when enabling higher logging levels would be prohibitive.
 	 * 
@@ -49,7 +49,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect} at logging level
+	 * Code marker to be handled by the TracingAspect at logging level
 	 * equivalent to java.util.logging.Level.FINE. FINE logging level is generally
 	 * used for debugging when enabling higher logging levels would be prohibitive.
 	 * 
@@ -60,7 +60,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect} at logging level
+	 * Code marker to be handled by the TracingAspect at logging level
 	 * equivalent to java.util.logging.Level.FINE. FINE logging level is generally
 	 * used for debugging when enabling higher logging levels would be prohibitive.
 	 * 
@@ -73,7 +73,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect} at logging level
+	 * Code marker to be handled by the TracingAspect at logging level
 	 * equivalent to java.util.logging.Level.FINER. FINER logging level is generally
 	 * used for printing method entry/return, input parameters and return value.
 	 * 
@@ -83,7 +83,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect} at logging level
+	 * Code marker to be handled by the TracingAspect at logging level
 	 * equivalent to java.util.logging.Level.FINER. FINER logging level is generally
 	 * used for printing method entry/return, input parameters and return value.
 	 * 
@@ -94,7 +94,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect} at logging level
+	 * Code marker to be handled by the TracingAspect at logging level
 	 * equivalent to java.util.logging.Level.FINER. FINER logging level is generally
 	 * used for printing method entry/return, input parameters and return value.
 	 * 
@@ -107,7 +107,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect} at logging level
+	 * Code marker to be handled by the TracingAspect at logging level
 	 * equivalent to java.util.logging.Level.FINEST. FINEST logging level is
 	 * generally used for debugging.
 	 * 
@@ -117,7 +117,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect} at logging level
+	 * Code marker to be handled by the TracingAspect at logging level
 	 * equivalent to java.util.logging.Level.FINEST. FINEST logging level is
 	 * generally used for debugging.
 	 * 
@@ -128,7 +128,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect} at logging level
+	 * Code marker to be handled by the TracingAspect at logging level
 	 * equivalent to java.util.logging.Level.FINEST. FINEST logging level is
 	 * generally used for debugging.
 	 * 
@@ -141,7 +141,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect}.
+	 * Code marker to be handled by the TracingAspect.
 	 * 
 	 * @return true if logging level equivalent to java.util.logging.Level.FINE is
 	 *         enabled by the logger
@@ -151,7 +151,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect}.
+	 * Code marker to be handled by the TracingAspect.
 	 * 
 	 * @return true if logging level equivalent to java.util.logging.Level.FINER is
 	 *         enabled by the logger
@@ -161,7 +161,7 @@ public class TracingHelper {
 	}
 
 	/**
-	 * Code marker to be handled by the {@link TracingAspect}.
+	 * Code marker to be handled by the TracingAspect.
 	 * 
 	 * @return true if logging level equivalent to java.util.logging.Level.FINEST is
 	 *         enabled by the logger
