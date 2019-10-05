@@ -9,3 +9,5 @@ git add .
 git commit -m "$commitMsg"
 git push -u origin $branchName
 set +x
+echo
+echo "DONE"
