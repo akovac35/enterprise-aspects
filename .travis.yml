@@ -2,19 +2,26 @@ language: java
 dist: trusty
 jdk:
 - openjdk8
+
 before_install:
-- "(echo $GPG_SECRET_KEY | base64 --decode | $GPG_EXECUTABLE --import) >/dev/null
-  2>&1"
-- "(echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust)
-  >/dev/null 2>&1"
+- "(echo $GPG_SECRET_KEY | base64 --decode | $GPG_EXECUTABLE --import) >/dev/null 2>&1"
+- "(echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust) >/dev/null 2>&1"
+
 install:
 - mvn clean install -Dmaven.source.skip -Dgpg.skip -Dmaven.javadoc.skip=true -DskipNexusStagingDeployMojo=true
   -B -V
+
 before_deploy:
 - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
 - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep
   -v '\[')
+
 deploy:
+- provider: script
+  script: mvn deploy --settings .maven.xml -DskipTests=true -B
+  skip_cleanup: true
+  on:
+    tags: true
 - provider: releases
   api_key:
     secure: QT1oOpKzBIZzDqLwejHE+eK1ImIQLz/NPzxsWE+zXv0vKL+g4+bsVptQ66lTT0ES6pzPdg229bJJ/orgwHT130d65vkH7AvHx/EY3Fuj3U1RUQYTL0NJwDzi5UAFlhCpuYrU+ju/Tbcq8pu7Z6mkHT/oxNcI/ZS3HUVb2FItGOUxAvwwqti+bfE7Yh5FlOHwx9pUagGOQVFi+CK0YJYE8vMdWrt312+xy42t8jbm9cCwP17lhSzj89q8tqmGAQraEvbXxfiHykQBmdQevDOlFSAmkKZG2zftIDWp7qosyAMpyMQnXDwelY0mSh0TLNzEtr4CxNAOsz6EXwG7kF8fcI+sZDGPfRMbgSkQRpw4TfW0Ppoe/zms0Gj6VOEvuYfBjNJl5XCPUK+1uaB8dB3uzmPAaqtVil6Iq5cHFgLXEnxR4pVfrVRbRSF/BcexpzmFTUhyOz6PK6zLOvnD5yUUJIsQF+T5eAiWu3UuqK80JnyrhepXuFHxBhdYndM/lADGL4zdgR26DcGuwGUnDn3bvqLvk6mRbZnn00LuG88+0tLHXqfAlKiGeltcHLXZ+fFXxc5Bdpi93fWpabKYaZi8VOeDLwwEV3CpzuKkWR2bOBT0DfnobD9N2pffbZmYFPC5ovEvsQRgMxotqQUEzlHD5uOVmjGC2lAg7ow9loiS7UQ=
@@ -25,11 +32,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-- provider: script
-  script: mvn deploy --settings .maven.xml -DskipTests=true -B
-  skip_cleanup: true
-  on:
-    tags: true
+
 cache:
   directories:
   - "~/.m2/repository"
