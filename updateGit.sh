@@ -1,3 +1,3 @@
 git add .
-git commit
+git commit -m "Scripted commit"
 git push -u origin master

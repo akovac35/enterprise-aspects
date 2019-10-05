@@ -7,7 +7,7 @@
 
 	<groupId>com.github.akovac35</groupId>
 	<artifactId>enterprise-aspects</artifactId>
-	<version>1.0.4</version>
+	<version>1.0.3</version>
 
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>A collection of AspectJ aspects for small to medium enterprise applications.</description>
