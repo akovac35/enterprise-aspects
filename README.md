@@ -1,5 +1,5 @@
 # enterprise-aspects
-[![Build Status](https://travis-ci.org/akovac35/enterprise-aspects.svg?branch=master)](https://travis-ci.org/akovac35/enterprise-aspects)
+[![Build Status](https://travis-ci.org/akovac35/enterprise-aspects.svg?branch=master)](https://travis-ci.org/akovac35/enterprise-aspects) ![Maven Central](https://img.shields.io/maven-central/v/com.github.akovac35/enterprise-aspects)
 
 enterprise-aspects is an AOP Java library containing a collection of AspectJ aspects for typical small to medium enterprise application requirements. The focus is on 
 * aspect performance,
@@ -9,7 +9,7 @@ enterprise-aspects is an AOP Java library containing a collection of AspectJ asp
 ## Usage
 See Wiki: [enterprise-aspects Wiki](../../wiki)
 
-## Building and installing the enterprise-aspects library
+## Building and installing the enterprise-aspects library from sources
 The distribution files can be built by running the standard Maven goal `mvn clean install` in the project root:
 
 1. git clone https://github.com/akovac35/enterprise-aspects.git
