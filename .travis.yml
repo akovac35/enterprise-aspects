@@ -19,14 +19,16 @@ deploy:
     script: mvn deploy --settings .maven.xml -DskipTests=true -B
     skip_cleanup: true
     on:
+      repo: akovac35/enterprise-aspects
       tags: true
   - provider: releases
     api_key:
       secure: m30nBNrqWWHwzEwEXNZByAXPgFV8ukdJnGvfETNWmqVVsYbg+jO53L/X9MbLD94E63hDVCVXn8sVq+OeV5HRXsHqXAgFDHRZoGzo9RoXJC45NqFZ6S4SbRRzYmHmnb73+D+o1X2+nuwQoPcXd5j+17mFJgrat+PMTNXba0ZUR/c2nIn+QC27Y3JcEn0IJzValQUx6qNkd7/OpZiwJ5zi4CKFnGHXY2sWmIkrG2YNeS0kbLF9ePbXqal82S7QgH1YmnQ5efGKEE+8tw3Bnl125xcovHL5zbuCUL0SolD3KAZ2s/qZpsmRNfTfoWIfc3h1IN5fT49U0VcLRrsLBvcBxfLedT5DiVEfnHZuAwRleG8MleatXj+aU19ryfLVlgnKhUSJYAdULakEG1deq5z1N+DDFVUx0jzFpuBgCT9pLl2Mx3oUvkI9nheH4j1NYD1gW4TZJHhkJ0a6FAehZOMrLc18BAzLvMrnADJ9FGIUFUzFZL7+vYfFLPJ+COg5jHJGzsdu90mn6VljHqtF9F+u7lYaPikulqI9spYi5IiQTUV06bfiAMyompTOQZg+gY6F9PgOlWQuTSXWl7TStAMCL7joOprZQdZmMf2jvqRrz2ERohNkckktYi2UrH1Kcmcpf1wFWZONkVQNUocHc4xJ27mNXCaUAFIhzsgQOIhXTzo=
     file:
-    - enterprise-aspects/target/enterprise-aspects-$project_version.jar
-    - enterprise-aspects/target/enterprise-aspects-$project_version-javadoc.jar
-    - enterprise-aspects/target/enterprise-aspects-$project_version-sources.jar
+    - target/enterprise-aspects-$project_version.jar
+    - target/enterprise-aspects-$project_version-javadoc.jar
+    - target/enterprise-aspects-$project_version-sources.jar
+    draft: true    
     skip_cleanup: true
     on:
       repo: akovac35/enterprise-aspects
